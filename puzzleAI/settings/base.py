@@ -2,9 +2,7 @@ from pathlib import Path
 
 from my_settings import DATABASES, SECRET_KEY
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-DEBUG = True
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 ALLOWED_HOSTS = ['*']
 
@@ -20,6 +18,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -27,7 +26,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'puzzleAI.urls'
@@ -77,9 +75,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATABASES = DATABASES
-
 SECRET_KEY = SECRET_KEY
+
+DATABASES = DATABASES
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -89,7 +87,7 @@ REST_FRAMEWORK = {
 
 APPEND_SLASH = False
 
-CORS_ORIGIN_ALLOW_ALL  =True
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
     

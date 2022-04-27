@@ -13,8 +13,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'rest_framework',  
     'corsheaders',
-    'rest_framework',    
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ DATABASES = DATABASES
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
 }
 
@@ -111,3 +113,5 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',    		
 )
+
+AUTH_USER_MODEL = 'accounts.User'

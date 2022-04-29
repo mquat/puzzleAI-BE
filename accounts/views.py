@@ -3,9 +3,8 @@ from rest_framework.generics import CreateAPIView
 
 from .serializers import UserSerializer
 
+from .models import User
+
 class SignUpView(CreateAPIView):
     permission_classes = [AllowAny]
-    serializer_class = UserSerializer
-    
-    def post(self, request):
-        return self.create(request)
+    serializer_class   = UserSerializer

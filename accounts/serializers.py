@@ -10,7 +10,7 @@ class UserSerializer(serializers.Serializer):
     last_name  = serializers.CharField(max_length = 50, write_only = True) 
     first_name = serializers.CharField(max_length = 50, write_only = True)
     password   = serializers.CharField(max_length= 128, write_only = True) 
-    
+
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
@@ -30,4 +30,4 @@ class LoginSerializer(serializers.Serializer):
         if not user.is_active:
             raise serializers.ValidationError('This user has been deactivated')
 
-        return {'user' : User.objects.get(id=user.id)}
+        return {'user' : user}

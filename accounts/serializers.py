@@ -27,7 +27,4 @@ class LoginSerializer(serializers.Serializer):
         if not user: 
             raise serializers.ValidationError('Invalid User')
 
-        if not user.is_active:
-            raise serializers.ValidationError('This user has been deactivated')
-
         return {'user' : user}

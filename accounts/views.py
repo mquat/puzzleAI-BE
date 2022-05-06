@@ -14,14 +14,14 @@ class TokenValidateView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request):
-        header = request.headers.get('Authorization')
+        user_token = request.headers.get('Authorization')
 
         for token in Token.objects.all():
-            if header == token.key:
+            if user_token == token.key:
                 return Response({'message':'Valid token'}, status = status.HTTP_200_OK)
 
         return Response({'message':'Signup or Login is needed'}, status = status.HTTP_401_UNAUTHORIZED)
-                
+    
 class EmailSearchView(APIView):
     permission_classes = [AllowAny]
 

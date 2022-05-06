@@ -4,11 +4,24 @@ from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
 
 from .serializers import UserSerializer, LoginSerializer
 
 from .models import User
 
+class TokenValidateView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        header = request.headers.get('Authorization')
+
+        for token in Token.objects.all():
+            if header == token.key:
+                return Response({'message':'Valid token'}, status = status.HTTP_200_OK)
+
+        return Response({'message':'Signup or Login is needed'}, status = status.HTTP_401_UNAUTHORIZED)
+                
 class EmailSearchView(APIView):
     permission_classes = [AllowAny]
 

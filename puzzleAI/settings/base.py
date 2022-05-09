@@ -7,6 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'channels',
+    'call',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +52,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'puzzleAI.wsgi.application'
+
+ASGI_APPLICATION = 'puzzleAI.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default' : {
+        'BACKEND' : 'channels_redis.core.RedisChannelLayer',
+        'CONFIG' : {
+            'hosts' : [('127.0.0.1', 6379)],
+        }
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

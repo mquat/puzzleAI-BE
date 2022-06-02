@@ -15,9 +15,8 @@
 |1|Python|프로그래밍 언어
 |2|Django(DRF)|프레임워크 
 |3|Django Channels|웹소켓 처리 위한 ASGI 지원 라이브러리 
-|4|AWS EC2|클라우드 배포
-|5|coturn|TURN 서버 구축 
-|6|certbot|무료 SSL 인증 적용 
-|7|Git|버전 관리
+|4|coturn|TURN 서버 구축 
+|5|certbot|무료 SSL 인증 적용 
+|6|Git|버전 관리
 
 <br/>
